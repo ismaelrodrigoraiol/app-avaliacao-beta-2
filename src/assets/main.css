@@ -1,0 +1,101 @@
+:root {
+	--primaria: #002efada;
+	--luz: #EEE;
+	--cinza: #888;
+	--escuro: #29293a;
+	--sombra: 0 1px 3px rgba(0, 0, 0, 0.1);
+	--business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+	--personal-glow: 0px 0px 4px rgba(141, 108, 231, 0.75);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'montserrat', sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: initial;
+}
+
+
+body {
+	color: var(--dark);
+	background: var(--luz);
+}
+
+
+
+label {
+	display: flex;
+	margin: 10px;
+	width: 50%;
+	border-radius: 0.8rem;
+	box-shadow: var(--shadow);
+	cursor: pointer;
+	background-color: #e3e4e4;
+	
+	margin-top: 10px;
+
+}
+label div {
+	color: var(--escuro);
+	font-size: 1.1225rem;
+	margin-top: 0.1rem;
+	padding: 1.2rem;
+	
+}
+
+.opcoes {
+	display: auto;	
+	background-color: #ffffff;
+	box-shadow: var(--sombra);
+	border-radius: 1.225rem;
+	margin: 1rem;
+	padding: 0.225rem 0.225rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+display: none;
+}
+
+.bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid blue;
+	box-shadow: var(--sombra);
+	
+}
+
+.bubble::after {
+	content: "";
+	display: flex;
+	opacity: 0;
+	width: 10px;
+	height: 10px;
+	background-color: var(--primaria);
+	box-shadow: var(--business-glow);
+	border-radius: 50%;
+	transition: 0.2s ease-in-out;
+	
+}
+
+input:checked ~ .bubble::after {
+	width: 10px;
+	height: 10px;
+	opacity: 1;
+}
+
+
+
+  
