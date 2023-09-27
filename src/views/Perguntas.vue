@@ -3,7 +3,6 @@ import {onMounted, ref, computed, watch} from 'vue'
 import Messege from '../components/Messege.vue';
 import { db } from '../firebase'
 import { collection, getDocs, addDoc } from 'firebase/firestore'
-//import globalService from 'globalService.js'
 //import HomeView from './HomeView.vue';
 
 
@@ -19,8 +18,8 @@ let input_comentario = ref('')
 let currentIndex = ref(0)
 let enviar = ref([])
 let msg = ref('')
-const perguntas = ref([])
-			/*{
+const perguntas = ref([
+			{
 			id: "0",
 			pergunta: "Qual seu grau de satisfação com o nosso atendimento?",
 			opcoes: ["Bom", "Muito Bom", "Ruim"],
@@ -34,9 +33,8 @@ const perguntas = ref([])
 			id: "2",
 			pergunta: "Você voltaria a comprar conosco?", 
 			opcoes: ["Sim", "Talvez", "Não"],
-			}	*/						
-	
-
+			}					
+	])
 const nextQuestion = () =>{
      if (input_resposta.value === ('')) {
       return alert("Selecione uma resposta!")
@@ -67,13 +65,13 @@ const finish = ()=> {
 			comentario: input_comentario.value
 		})
 
-
    /*enviar.value.push({
       nome: input_name.value,
       email: input_email.value,
       respostas: respostas.value,
       comentario: input_comentario.value,   
    })*/
+
    isFinish.value = true
    msg.value = 'Suas respostas foram enviadas! Obrigado por participar.'
 		setTimeout(() => {
@@ -83,7 +81,7 @@ const finish = ()=> {
       3000)
 }
       
-onMounted(async() => {
+/*onMounted(async() => {
 	const querySnapshot = await getDocs(collection(db, 'perguntas'));
 	const fireBasePerguntas = []
 	querySnapshot.forEach((doc) => {
@@ -96,7 +94,7 @@ onMounted(async() => {
 	fireBasePerguntas.push(perg)
 });
 	perguntas.value = fireBasePerguntas
-})
+})*/
 /*watch (
    items, ( newVal) =>{
    items.setItem (items(newVal))
@@ -108,39 +106,42 @@ onMounted(async() => {
 
 </script>
 
-
 <template>
 <!--<home-view @enviarDados="atualizarDados"/>-->   
 <main class="app"> 
-<div v-if="greeting">
-<div class="titulo">Já vamos começar!</div>
-<div class="bem-vindo">
+   <div v-if="greeting">
+   <div class="titulo">Vamos começar?</div>
+   <div class="bem-vindo">
    <span>Informe seu nome (Opcional)</span>
-<input 
-  type="text" 
-  name="nome" 
-  id="nome" 
-  placeholder="seu nome aqui..."
-  v-model="input_name" />
+   <input 
+      type="text" 
+      name="nome" 
+      id="nome" 
+      placeholder="seu nome aqui..."
+      v-model="input_name" />
 
-<span>Informe seu e-mail (Opcional)</span>
-<input 
-  type="email"
-  name="email"
-  id="email"		
-  placeholder="seu e-mail aqui..."
-  v-model="input_email" />
+   <span>Informe seu e-mail (Opcional)</span>
+      <input 
+      type="email"
+      name="email"
+      id="email"		
+      placeholder="seu e-mail aqui..."
+      v-model="input_email" />
   
    <div class="btn">
-      <input type="button" value="Começar" @click="loadQuestion()">
+      <input 
+      type="button" 
+      value="Iniciar" 
+      @click="loadQuestion()">
    </div>
    
 </div>
 
-</div>			
+</div>
+</main>		
 
-
-<div class="perguntas" v-if="!isLast && !greeting">
+<main>
+<section class="perguntas" v-if="!isLast && !greeting">
    <div>
         <h1>Pergunta {{ currentIndex + 1 }} de {{ perguntas.length }}</h1>
     </div>
@@ -151,7 +152,7 @@ onMounted(async() => {
     <div>
       <h4>Selecione uma opção abaixo (Obrigatório*)</h4>
     </div>  
-    <div class="opcoes"  >        
+    <div class="options"  >        
          <label v-for="opcao, index in items.opcoes" :key="index">
            <div>
               <input
@@ -161,21 +162,26 @@ onMounted(async() => {
                 :value= "opcao"
                 v-model="input_resposta">
                 <span class="bubble"></span>
-                </div> 
-                
+                </div>              
             <div>{{ opcao }} </div>                    
          </label>            
       </div>
-      <div class="input-resposta">
-         <h1 v-show="input_resposta">Resposta selecionada: {{ input_resposta }}</h1>
-      
-    </div>
-   <span class="btn">
-   <div>
-      <input type="button" value="Próximo" @click="nextQuestion()"/>
+
+      <section class="input-conteiner">
+         <div class="input-resposta" v-show="input_resposta">Resposta selecionada: {{ input_resposta }}</div>   
+      </section>       
+
+   <div class="btn">
+      <input 
+      type="button" 
+      value="Próximo" 
+      @click="nextQuestion()"/>
    </div>   
-   </span>
-</div>
+  
+</section>
+</main>
+
+<main>
 <div class="e-mail" v-if="isLast">
    <h1>Obrigado por chegar até aqui!</h1>
    <messege :msg="msg" v-show="msg"/>
@@ -189,27 +195,21 @@ onMounted(async() => {
          placeholder="Escreva seu comentário aqui..."
          v-model="input_comentario">
     </div>   
+     
+   <div class="btn" v-show="!isFinish">
+      <input 
+      type="button" 
+      value="Finalizar" 
+      @click="finish()">
+   </div>
 
-      
-   <span class="btn">
-   <div v-show="!isFinish">
-      <input type="button" value="Finalizar" @click="finish()">
-   </div>
- 
-   </span>
    <div v-show="isFinish">
-      <button id="inicio" @click="$router.push('/')">Sair</button>
+      <button 
+      class="btn-router"
+      @click="$router.push('/')">
+      Sair</button>
    </div>
-   <div v-show="isFinish">    
-      <router-link to="/Dashboard"
-      style="
-      display: block;
-      font-size: larger; 
-      color:rgb(3, 3, 179);
-      text-align: center;
-      margin-top: 10%;"
-      >Visualizar respostas enviadas</router-link>
-   </div>
+
 </div>
 </main>
 </template>
@@ -237,13 +237,13 @@ onMounted(async() => {
   padding: 1.5rem 1.5rem;
   border-left: 4px solid #ffd21c;
   margin: 0 auto;
-  width: 50%;
+  width: 400px;
   margin-bottom: .5rem;
 }
 
 .bem-vindo input[type="email"] {
    display: block;
-	width: 50%;
+	width: 400px;
 	font-size: 1.125rem;
 	padding: 1rem 1.5rem;
 	color: var(--escuro);
@@ -256,7 +256,7 @@ onMounted(async() => {
 
 .bem-vindo input[type="text"] {
    display: flex;
-	width: 50%;
+	width: 400px;
 	font-size: 1.125rem;
 	padding: 1rem 1.5rem;
 	color: var(--escuro);
@@ -282,61 +282,28 @@ h1 {
 
 h3 {
 	color: rgb(75, 74, 74);
-	font-size: auto;
+	font-size: 1.125rem;
 	font-weight: 500;
-	margin-bottom: 0.5rem;
-   margin: 1rem;
-   border-left: 4px solid #fdd63c;
-   display: block;
-   font-weight: bold;
-   padding: 5px 10px;
+	
+   margin: 0 auto ;
+   border-left: 4px solid #fdd63c; 
+   padding: 1rem 1rem;
+   width: 450px;
    
 }
 h4 {
-	color: var(--cinza);
+	color: var(--cinza-escuro);
 	font-size: 0.775rem;
-	font-weight: 700;
-	margin-bottom: 0.5rem;
-   margin: 1rem;
-}
-.btn input[type="button"] {
-	display: block;
-	width: 10% auto;
-	font-size: 1.125rem;
-	padding: 1rem 1.5rem;
-	color: #ffffff;
-	background-color: rgb(41, 41, 252);
-   box-shadow: 0 0 0.5em rgba(18, 15, 175, 0.671);
-	border-radius: 0.5rem;
-	cursor: pointer;
-	transition: 0.2s ease-in-out;
+	font-weight: 500;
+	padding: 1.225rem .5rem;
    margin: 0 auto;
-   margin-top: 3.5rem;
+   width: 450px;
 }
 
-.btn input[type="button"]:hover {
-	opacity: 0.75;
-	background-color: #96959b;
-}
-#inicio {
-   display: block;
-   text-align: center;
-	width: 20% auto;
-   margin: 0 auto;
-	font-size: 1.225rem;
-	padding: 0.8rem 2.5rem;
-	color: #ffffff;
-	background-color: rgb(41, 41, 252);
-	border-radius: 0.5rem;
-	cursor: pointer;
-	transition: 0.2s ease-in-out;
-	margin-top: 3.5rem;
-   box-shadow: 0 0 0.5em rgba(18, 15, 175, 0.671);
-   transition: box-shadow .5s;
-}
+
  input[type="text"] {
    display: flex;
-	width: 95%;
+	width: 450px;
 	font-size: 1.125rem;
 	padding: 3rem 1.5rem;
 	color: var(--escuro);
@@ -346,19 +313,27 @@ h4 {
 	margin-bottom: 2rem;
    margin: 0 auto;
 }
-.input-resposta h1 {
-   
-   font-size: 15px;
-   color: #01c20a;
-   background-color: rgba(157, 255, 165, 0.192);
-   border: 2px solid rgba(150, 253, 150, 0.644);
-   width: 80%;
-   padding: 2.5px;
+.input-resposta { 
+   display: block;
+   font-size: 1rem;
+   font-weight: 500;
+   color: #448347;
+   background-color: rgba(175, 252, 181, 0.192);
+   border: 1.5px solid rgba(150, 253, 150, 0.644);
+   width: 400px;
    border-radius: 0.5rem;
-   height: 30px;
-   position: fixed;
-   justify-content: center;
-   margin-left: 50px;
+   padding: .5rem .5rem;
+   text-align: center;
+   margin: 0 auto;
+   margin-top: 10px;
+   position: absolute;
+   transform: translate(-50)
+   
+}
+.input-conteiner {
+   display: flex;
+   margin: 0 auto;
+   width: 400px;
    
 }
 

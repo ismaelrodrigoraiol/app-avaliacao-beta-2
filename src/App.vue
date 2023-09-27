@@ -6,15 +6,16 @@ import FooterView from './components/FooterView.vue';
 </script>
 
 <template>
+    <nav> 
+    </nav>
 
-
-      <nav>
-        
+    <body>
         <RouterView />
-      </nav>
-      <footer-view/>
+    </body>
 
-  
+  <footer>
+      <footer-view/>
+  </footer>
 </template>
 
 <style scoped>

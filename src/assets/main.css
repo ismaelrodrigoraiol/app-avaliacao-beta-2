@@ -1,7 +1,8 @@
 :root {
 	--primaria: #002efada;
 	--luz: #EEE;
-	--cinza: #888;
+	--cinza: #bdbcbc;
+	--cinza-escuro: #7e8080;
 	--escuro: #29293a;
 	--sombra: 0 1px 3px rgba(0, 0, 0, 0.1);
 	--business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
@@ -27,9 +28,16 @@ input:not([type="radio"]):not([type="checkbox"]), button {
 body {
 	color: var(--dark);
 	background: var(--luz);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+
 }
-
-
+main{
+	padding: 5px;
+}
 
 label {
 	display: flex;
@@ -39,7 +47,6 @@ label {
 	box-shadow: var(--shadow);
 	cursor: pointer;
 	background-color: #e3e4e4;
-	
 	margin-top: 10px;
 
 }
@@ -51,13 +58,15 @@ label div {
 	
 }
 
-.opcoes {
+.options {
 	display: auto;	
 	background-color: #ffffff;
 	box-shadow: var(--sombra);
 	border-radius: 1.225rem;
-	margin: 1rem;
+	margin: 0 auto;
 	padding: 0.225rem 0.225rem;
+	width: 450px;
+	max-width: 95%;
 }
 
 input[type="radio"],
@@ -72,7 +81,7 @@ display: none;
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	border: 2px solid blue;
+	border: 2px solid var(--primaria);
 	box-shadow: var(--sombra);
 	
 }
@@ -87,7 +96,6 @@ display: none;
 	box-shadow: var(--business-glow);
 	border-radius: 50%;
 	transition: 0.2s ease-in-out;
-	
 }
 
 input:checked ~ .bubble::after {
@@ -95,7 +103,39 @@ input:checked ~ .bubble::after {
 	height: 10px;
 	opacity: 1;
 }
-
+.btn input[type="button"]{
+	display: block;
+	width: 150px;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: #ffffff;
+	background-color: var(--primaria);
+	border-radius: 0.555rem;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+    margin: 0 auto;
+    margin-top: 3.5rem;
+	
+}
+.btn input[type="button"]:hover {
+	opacity: 0.75;
+	background-color: var(--cinza);
+}
+.btn-router {
+	display: block;
+	text-align: center;
+	width: 20%;
+	margin: 0 auto;
+	font-size: 1.225rem;
+	padding: 1rem 1rem;
+	color: #ffffff;
+	background-color: var(--primaria);
+	border-radius: 0.555rem;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+	margin-top: 3.5rem;
+	transition: box-shadow .5s;
+ }
 
 
   

@@ -16,20 +16,23 @@ import {ref, computed, onMounted} from 'vue'
 	<h5 style="
 	font-size: 80px; 
 	color: rgb(235, 219, 0);
-	padding: 30px;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	padding: 10px;
 	">
 	olá,</h5>
 	Seja bem-vindo, queremos saber sua opnião!</h1>
 
     <h4>Sua opinião é muito importante para para que possamos melhorar nossos serviços, click abaixo para participar!</h4>
-
+	<img src="@/img/app-avaliacao.png" alt="foto-inicio" srcset="">
 			
 </form>
 <div class="router">
- 
   
-<button type="button" id="perg" @click="$router.push('Perguntas')">Entrar</button>
+<button 
+	type="button" 
+	class="btn-router" 
+	@click="$router.push('Perguntas')"
+	>Entrar
+</button>
 
 <!--<button @click="$emit('enviarDados', {nome: input_name, email: input_email})">evento</button>-->
  
@@ -41,6 +44,12 @@ import {ref, computed, onMounted} from 'vue'
   </main>
 </template>
 <style scoped>
+img {
+	display: flex;
+	width: 250px;
+	height: 180px;
+	margin: 0 auto;
+}
 h4 {
 	color: rgb(124, 124, 124);
 	font-size: 0.822rem;
@@ -60,23 +69,6 @@ h4 {
  	margin: 0 auto;
   	width: 50% auto;
   	padding: 30px 30px;
-
-}
-
-#perg {
-  	display: block;
-  	text-align: center;
-	width: 20% auto;
-  	margin: 0 auto;
-	font-size: 1.125rem;
-	padding: 1rem 1.5rem;
-	color: #ffffff;
-	background-color: rgb(47, 47, 226);
-	box-shadow: 0 0 0.5em rgba(18, 15, 175, 0.671);
-	border-radius: 0.5rem;
-	cursor: pointer;
-	transition: 0.2s ease-in-out;
-	margin-top: 3.5rem;
 
 }
 

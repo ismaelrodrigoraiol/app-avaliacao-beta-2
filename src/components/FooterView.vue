@@ -11,15 +11,16 @@
 <style scoped>
 #footer {
     height: 80px;
-    background-color: #d4d4d4;
-    border-top: 2px solid rgb(231, 231, 231);
-    color: rgb(65, 65, 65);
+    background-color: rgb(206, 206, 206);
+    border-top: 8px outset;
+    color: var(--escuro);
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 0;
+    bottom: 0%;
     width: 100%;
-    margin-top: 2rem;
-    position: fixed;
+    padding: 20px;
+    border-top: 1px solid rgb(184, 184, 184);
+    
 }
 </style>
