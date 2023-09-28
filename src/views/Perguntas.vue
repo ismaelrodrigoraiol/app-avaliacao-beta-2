@@ -289,7 +289,7 @@ h4 {
    color: #448347;
    background-color: rgba(175, 252, 181, 0.192);
    border: 1.5px solid rgba(150, 253, 150, 0.644);
-   width: 400px;
+   width: 80%;
    border-radius: 0.5rem;
    padding: .5rem .5rem;
    text-align: center;
@@ -302,7 +302,7 @@ h4 {
 .input-conteiner {
    display: flex;
    margin: 0 auto;
-   width: 400px;
+   width: 80%;
    
 }
 
