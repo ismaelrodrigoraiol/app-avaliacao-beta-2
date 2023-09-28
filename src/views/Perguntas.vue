@@ -14,25 +14,9 @@ let input_resposta = ref('')
 let respostas = ref([])
 let input_comentario = ref('')
 let currentIndex = ref(0)
-let enviar = ref([])
 let msg = ref('')
-const perguntas = ref([
-			{
-			id: "0",
-			pergunta: "Qual seu grau de satisfação com o nosso atendimento?",
-			opcoes: ["Bom", "Muito Bom", "Ruim"],
-			},
-			{
-			id: "1",
-			pergunta: "Como você descreveria a experiencia de comprar conosco?", 
-			opcoes: ["Bom", "Muito Bom", "Descepcionante"],
-			},
-			{
-			id: "2",
-			pergunta: "Você voltaria a comprar conosco?", 
-			opcoes: ["Sim", "Talvez", "Não"],
-			}					
-	])
+const perguntas = ref([])
+
 const nextQuestion = () =>{
      if (input_resposta.value === ('')) {
       return alert("Selecione uma resposta!")
@@ -60,16 +44,10 @@ const finish = ()=> {
          nome: input_name.value,
 			email: input_email.value,
 			respostas: respostas.value,
-			comentario: input_comentario.value
+			comentario: input_comentario.value,
+         data: new Date(),
+         date: Date.now()
 		})
-
-   enviar.value.push({
-      nome: input_name.value,
-      email: input_email.value,
-      respostas: respostas.value,
-      comentario: input_comentario.value,
-      date: Date.now() 
-   })
 
    isFinish.value = true
    msg.value = 'Suas respostas foram enviadas! Obrigado por participar.'
