@@ -21,6 +21,7 @@
     width: 100%;
     padding: 20px;
     border-top: 1px solid rgb(184, 184, 184);
+    position: absolute;
     
 }
 </style>

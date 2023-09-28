@@ -237,13 +237,12 @@ const finish = ()=> {
   padding: 1.5rem 1.5rem;
   border-left: 4px solid #ffd21c;
   margin: 0 auto;
-  width: 400px;
+  width: 50%;
   margin-bottom: .5rem;
 }
 
 .bem-vindo input[type="email"] {
    display: block;
-	width: 400px;
 	font-size: 1.125rem;
 	padding: 1rem 1.5rem;
 	color: var(--escuro);
@@ -252,11 +251,11 @@ const finish = ()=> {
 	box-shadow: var(--sombra);
    margin: 0 auto;
    margin-bottom: 0.5rem;
+   width: 50%
 }
 
 .bem-vindo input[type="text"] {
-   display: flex;
-	width: 400px;
+   display: block;
 	font-size: 1.125rem;
 	padding: 1rem 1.5rem;
 	color: var(--escuro);
@@ -265,6 +264,7 @@ const finish = ()=> {
 	box-shadow: var(--sombra);
    margin: 0 auto;
    margin-bottom: 0.5rem;
+   width:50%
 }
 
 h1 {
@@ -281,14 +281,15 @@ h1 {
 }
 
 h3 {
+   
 	color: rgb(75, 74, 74);
 	font-size: 1.125rem;
-	font-weight: 500;
+	font-weight: bold 500;
 	
    margin: 0 auto ;
    border-left: 4px solid #fdd63c; 
-   padding: 1rem 1rem;
-   width: 450px;
+   padding: 5px 10px;
+   
    
 }
 h4 {
@@ -297,13 +298,13 @@ h4 {
 	font-weight: 500;
 	padding: 1.225rem .5rem;
    margin: 0 auto;
-   width: 450px;
+   
 }
 
 
  input[type="text"] {
    display: flex;
-	width: 450px;
+	width: 95%;
 	font-size: 1.125rem;
 	padding: 3rem 1.5rem;
 	color: var(--escuro);
