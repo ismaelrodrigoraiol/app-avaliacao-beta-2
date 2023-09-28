@@ -19,9 +19,9 @@
     justify-content: center;
     bottom: 0%;
     width: 100%;
-    padding: 20px;
+    
     border-top: 1px solid rgb(184, 184, 184);
-    position: absolute;
+    position: fixed;
     
 }
 </style>
