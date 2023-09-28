@@ -3,8 +3,6 @@ import {onMounted, ref, computed, watch} from 'vue'
 import Messege from '../components/Messege.vue';
 import { db } from '../firebase'
 import { collection, getDocs, addDoc } from 'firebase/firestore'
-//import HomeView from './HomeView.vue';
-
 
 let greeting = ref(true)
 let isFinish = ref(false)
@@ -65,12 +63,13 @@ const finish = ()=> {
 			comentario: input_comentario.value
 		})
 
-   /*enviar.value.push({
+   enviar.value.push({
       nome: input_name.value,
       email: input_email.value,
       respostas: respostas.value,
-      comentario: input_comentario.value,   
-   })*/
+      comentario: input_comentario.value,
+      date: Date.now() 
+   })
 
    isFinish.value = true
    msg.value = 'Suas respostas foram enviadas! Obrigado por participar.'
@@ -81,7 +80,7 @@ const finish = ()=> {
       3000)
 }
       
-/*onMounted(async() => {
+onMounted(async() => {
 	const querySnapshot = await getDocs(collection(db, 'perguntas'));
 	const fireBasePerguntas = []
 	querySnapshot.forEach((doc) => {
@@ -94,20 +93,11 @@ const finish = ()=> {
 	fireBasePerguntas.push(perg)
 });
 	perguntas.value = fireBasePerguntas
-})*/
-/*watch (
-   items, ( newVal) =>{
-   items.setItem (items(newVal))
-})*/
-/*const atualizarDados = (dados) =>{
-      nome.value = dados.nome
-      email.value = dados.email       
-}*/
+})
 
 </script>
 
-<template>
-<!--<home-view @enviarDados="atualizarDados"/>-->   
+<template> 
 <main class="app"> 
    <div v-if="greeting">
    <div class="titulo">Vamos começar?</div>

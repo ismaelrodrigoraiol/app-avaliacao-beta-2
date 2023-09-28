@@ -10,7 +10,7 @@
 </template>
 <style scoped>
 #footer {
-    height: 80px;
+    height: 10%;
     background-color: rgb(206, 206, 206);
     border-top: 8px outset;
     color: var(--escuro);
