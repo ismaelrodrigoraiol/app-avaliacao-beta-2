@@ -1,4 +1,4 @@
-<script setup>
+﻿<script setup>
 import {onMounted, ref, computed, watch} from 'vue'
 import Messege from '../components/Messege.vue';
 import { db } from '../firebase'
@@ -205,7 +205,7 @@ onMounted(async() => {
   padding: 1.5rem 1.5rem;
   border-left: 4px solid #ffd21c;
   margin: 0 auto;
-  width: 50%;
+  width: 80%;
   margin-bottom: .5rem;
 }
 
@@ -219,7 +219,7 @@ onMounted(async() => {
 	box-shadow: var(--sombra);
    margin: 0 auto;
    margin-bottom: 0.5rem;
-   width: 50%
+   width: 80%
 }
 
 .bem-vindo input[type="text"] {
@@ -232,7 +232,7 @@ onMounted(async() => {
 	box-shadow: var(--sombra);
    margin: 0 auto;
    margin-bottom: 0.5rem;
-   width:50%
+   width:80%
 }
 
 h1 {
@@ -296,7 +296,7 @@ h4 {
    margin: 0 auto;
    margin-top: 10px;
    position: absolute;
-   transform: translate(-50)
+   
    
 }
 .input-conteiner {

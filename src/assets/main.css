@@ -1,3 +1,6 @@
+@import './base.css';
+
+
 :root {
 	--primaria: #002efada;
 	--luz: #EEE;
@@ -42,15 +45,16 @@ main{
 label {
 	display: flex;
 	margin: 10px;
-	min-width: 50%;
+	min-width: 95%;
 	max-width: max-content;
-	border-radius: 0.8rem;
+	border-radius: 2.1rem;
 	box-shadow: var(--shadow);
 	cursor: pointer;
 	background-color: #e3e4e4;
 	margin-top: 10px;
 
 }
+
 label div {
 	display: flex;
 	color: var(--escuro);
@@ -72,8 +76,10 @@ label div {
 
 input[type="radio"],
 input[type="checkbox"] {
-display: none;
+	display: none;
 }
+
+
 
 .bubble {
 	display: flex;
@@ -103,6 +109,7 @@ input:checked ~ .bubble::after {
 	width: 10px;
 	height: 10px;
 	opacity: 1;
+	
 }
 .btn input[type="button"]{
 	display: block;

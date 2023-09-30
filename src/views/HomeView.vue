@@ -14,9 +14,11 @@ import {ref, computed, onMounted} from 'vue'
 
 <h1 class="titulo"> 
 	<h5 style="
-	font-size: 80px; 
-	color: rgb(235, 219, 0);
+	font-size: 80px;
+	font-weight: bold; 
+	color: rgb(238, 222, 3);
 	padding: 10px;
+	text-shadow: 0px 1px 1px rgb(116, 116, 116);
 	">
 	olá,</h5>
 	Seja bem-vindo, queremos saber sua opnião!</h1>
@@ -53,7 +55,7 @@ img {
 h4 {
 	color: rgb(124, 124, 124);
 	font-size: 0.822rem;
-	font-weight: 700;
+	font-weight: 500;
 	margin-bottom: 0.5rem;
     margin: 1.225rem;
 	text-align: center;
