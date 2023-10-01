@@ -272,7 +272,7 @@ h4 {
 
  input[type="text"] {
    display: flex;
-	width: 95%;
+	width: 98%;
 	font-size: 1.125rem;
 	padding: 3rem 1.5rem;
 	color: var(--escuro);
@@ -286,8 +286,8 @@ h4 {
    display: block;
    font-size: 1rem;
    font-weight: 500;
-   color: #448347;
-   background-color: rgba(175, 252, 181, 0.192);
+   color: #417543;
+ 
    border: 1.5px solid rgba(150, 253, 150, 0.644);
    width: 80%;
    border-radius: 0.5rem;

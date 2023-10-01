@@ -17,7 +17,7 @@ import {ref, computed, onMounted} from 'vue'
 	font-size: 80px;
 	font-weight: bold; 
 	color: rgb(238, 222, 3);
-	padding: 10px;
+	padding: 1rem 1rem;
 	text-shadow: 0px 1px 1px rgb(116, 116, 116);
 	">
 	olá,</h5>
@@ -48,8 +48,8 @@ import {ref, computed, onMounted} from 'vue'
 <style scoped>
 img {
 	display: flex;
-	width: 250px;
-	height: 180px;
+	width: 200px;
+	height: 140px;
 	margin: 0 auto;
 }
 h4 {
