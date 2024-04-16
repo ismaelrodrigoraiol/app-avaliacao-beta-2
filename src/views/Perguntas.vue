@@ -1,13 +1,12 @@
 ﻿<script setup>
 import {onMounted, ref, computed, watch} from 'vue'
 import Messege from '../components/Messege.vue';
-import { db } from '../firebase'
-import { collection, getDocs, addDoc } from 'firebase/firestore'
+
 
 let greeting = ref(true)
 let isFinish = ref(false)
 let isLast = ref(false)
-const input_email = ref('')
+const input_matricula = ref('')
 const input_name = ref('')
 let items = ref([])
 let input_resposta = ref('')
@@ -17,9 +16,50 @@ let currentIndex = ref(0)
 let msg = ref('')
 const perguntas = ref([])
 
+const perguntas_teste = ref([
+			{		
+            id: "1",		
+            pergunta: "O curso de Sistemas de Informação da UFOPA atende às suas expectativas?",			
+            opcoes: ["Sim, totalmente", "Sim, em grande parte", "Neutro", "Não, em parte", "Não, de forma alguma"],
+			},
+			{			
+            id: "2",			
+            pergunta: "Os professores são eficazes em suas metodologias de ensino?", 			
+            opcoes: ["Sim, muito eficazes","Sim, eficazes na maioria das vezes","Neutro", "Não tão eficazes quanto o esperado",
+            "Não, pouco eficazes"],
+			},
+			{			
+            id: "3",			
+            pergunta: "Os recursos e instalações da universidade são adequados para o curso?", 			
+            opcoes: ["Sim, completamente adequados", "Sim, em sua maioria adequados", "Neutro", "Não tão adequados quanto o esperado",
+            "Não, inadequados"],
+			},	
+         {			
+            id: "4",			
+            pergunta: "O conteúdo do curso está atualizado com as últimas tendências e tecnologias?", 			
+            opcoes: ["Sim, completamente atualizados", "Sim, em sua maioria atualizado", "Neutro", "Não tão atualizados quanto o esperado",
+            "Não, desatualizado"],
+			},
+         {			
+            id: "5",			
+            pergunta: "O curso prepara você adequadamente para o mercado de trabalho?", 			
+            opcoes: ["Sim, totalmente preparado", "Sim, em grande parte preparado", "Neutro", "Não tão preparado quanto o esperado",
+            "Não, pouco preparado"],
+			},	
+         {			
+            id: "6",			
+            pergunta: "Quais aspectos do curso você acha que poderiam ser melhorados?", 			
+            opcoes: ["Metodologia de ensino", "Conteudo do curso", "Recursos e instalações", "Preparação para o mercado de trabalho",
+            "Outros"],
+			},	
+		]
+	)
+
+
+
 const nextQuestion = () =>{
      if (input_resposta.value === ('')) {
-      return alert("Selecione uma resposta!")
+      return alert("Selecione uma das opções!")
      }
      if(currentIndex.value === perguntas.value.length -1 ){
          isLast.value = true
@@ -35,19 +75,13 @@ const nextQuestion = () =>{
     }
 
 const loadQuestion = () =>{
+   if(!input_matricula.value.length){
+      return alert("É obrigatório informar o número de matrícula!")
+   }
      greeting.value = false
      items.value = perguntas.value[currentIndex.value]
      }
 
-const finish = ()=> {
-   addDoc (collection(db, 'respostas'), {
-         nome: input_name.value,
-			email: input_email.value,
-			respostas: respostas.value,
-			comentario: input_comentario.value,
-         data: new Date(),
-         date: Date.now()
-		})
 
    isFinish.value = true
    msg.value = 'Suas respostas foram enviadas! Obrigado por participar.'
@@ -56,21 +90,11 @@ const finish = ()=> {
 		input_comentario.value = ('')     
       },
       3000)
-}
+
       
 onMounted(async() => {
-	const querySnapshot = await getDocs(collection(db, 'perguntas'));
-	const fireBasePerguntas = []
-	querySnapshot.forEach((doc) => {
-  	console.log(doc.id, " => ", doc.data());
-	const perg = {
-		id: doc.data().id,
-		pergunta: doc.data().pergunta,
-		opcoes: doc.data().opcoes
-	}
-	fireBasePerguntas.push(perg)
-});
-	perguntas.value = fireBasePerguntas
+
+   perguntas.value = perguntas_teste.value
 })
 
 </script>
@@ -80,7 +104,7 @@ onMounted(async() => {
    <div v-if="greeting">
    <div class="titulo">Vamos começar?</div>
    <div class="bem-vindo">
-   <span>Informe seu nome (Opcional)</span>
+   <span>Informe seu nome</span>
    <input 
       type="text" 
       name="nome" 
@@ -88,13 +112,13 @@ onMounted(async() => {
       placeholder="seu nome aqui..."
       v-model="input_name" />
 
-   <span>Informe seu e-mail (Opcional)</span>
+   <span>Informe sua matrícula (Obrigatório)</span>
       <input 
-      type="email"
-      name="email"
-      id="email"		
-      placeholder="seu e-mail aqui..."
-      v-model="input_email" />
+      type="text"
+      name="matricula"
+      id="matricula"		
+      placeholder="sua matrícula aqui..."
+      v-model="input_matricula" />
   
    <div class="btn">
       <input 

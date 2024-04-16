@@ -3,7 +3,7 @@
 </script>
 <template>
     <div id="footer">
-        <p>Desenvolvido por Ismael Rodrigo Raiol &copy; 2023</p>
+        <p>Desenvolvido por Ismael Rodrigo Raiol &copy; 2024</p>
 
     </div>
     
@@ -21,7 +21,7 @@
     width: 100%;
     
     border-top: 1px solid rgb(184, 184, 184);
-    position: fixed;
+    position: flex;
     
 }
 </style>

@@ -23,7 +23,7 @@ import {ref, computed, onMounted} from 'vue'
 	olá,</h5>
 	Seja bem-vindo, queremos saber sua opnião!</h1>
 
-    <h4>Sua opinião é muito importante para para que possamos melhorar nossos serviços, click abaixo para participar!</h4>
+    <h4>Olá aluno de Sistemas de Informação, sua opinião é muito importante para para que possamos melhorar nossos serviços, click abaixo para participar!</h4>
 	<img src="@/img/app-avaliacao.png" alt="foto-inicio" srcset="">
 			
 </form>

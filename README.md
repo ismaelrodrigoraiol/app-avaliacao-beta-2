@@ -1,28 +1,28 @@
-# app-avaliacao-beta
+# Feedback-BSI
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto está em desenvolvimento por Ismael Rodrigo Raiol (desenvolvido com Vue 3 em Vite).
 
-## Recommended IDE Setup
+## IDE recomendada
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+## Configuração
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Veja [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Configuração do projeto
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compilar e recarregar para desenvolvimento
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Compilar e reproduzir
 
 ```sh
 npm run build
